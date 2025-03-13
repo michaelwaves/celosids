@@ -1,6 +1,10 @@
 "use client"
-import SQRCode from "@/components/SelfQRCode";
+import dynamic from 'next/dynamic'
 
+const SQRCode = dynamic(
+  () => import('../components/SelfQRCode'),
+  { ssr: false }
+)
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
