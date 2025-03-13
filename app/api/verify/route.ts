@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     console.log(req.body)
     if (req.method === 'POST') {
         try {
-            const { proof, publicSignals } = data.body;
+            const { proof, publicSignals } = data;
 
             if (!proof || !publicSignals) {
                 return NextResponse.json({ status: 400, message: 'Proof and publicSignals are required' });
