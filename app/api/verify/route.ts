@@ -3,6 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
     const data = await req.json();
+    console.log(req.body)
+    console.log(data)
+    console.log(req.body)
     if (req.method === 'POST') {
         try {
             const { proof, publicSignals } = data.body;
