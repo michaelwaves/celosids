@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
             const { proof, publicSignals } = data;
 
             if (!proof || !publicSignals) {
-                return NextResponse.json({ status: 400, message: 'Proof and publicSignals are required' });
+                return NextResponse.json({ message: 'Proof and publicSignals are required' }, { status: 400 });
             }
 
             // Extract user ID from the proof
@@ -40,30 +40,30 @@ export async function POST(req: NextRequest) {
             if (result.isValid) {
                 // Return successful verification response
                 return NextResponse.json({
-                    status: 200,
+                    status: 'success',
                     result: true,
                     credentialSubject: result.credentialSubject
-                });
+                }, { status: 200 });
 
             } else {
                 // Return failed verification response
                 return NextResponse.json({
-                    status: 500,
+                    status: 'success',
                     result: false,
                     message: 'Verification failed',
                     details: result.isValidDetails
-                });
+                }, { status: 400 });
             }
         } catch (error) {
             console.error('Error verifying proof:', error);
             return NextResponse.json({
-                status: 500,
+                status: 'error',
                 result: false,
                 message: error instanceof Error ? error.message : 'Unknown error'
-            });
+            }, { status: 500 });
         }
     } else {
-        return NextResponse.json({ status: 405, message: 'Method not allowed' });
+        return NextResponse.json({ message: 'Method not allowed' }, { status: 405 });
     }
 }
 
