@@ -29,6 +29,7 @@ const selfApp = new SelfAppBuilder({
 }).build();
 
 function SQRCode() {
+
     return (
         <SelfQRcodeWrapper
             selfApp={selfApp}

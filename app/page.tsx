@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic'
 
 const SQRCode = dynamic(
-  () => import('../components/SelfQRCode'),
+  () => import('../components/VerificationPage'),
   { ssr: false }
 )
 export default function Home() {
