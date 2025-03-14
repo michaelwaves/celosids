@@ -35,6 +35,8 @@ export async function POST(req: NextRequest) {
             // Verify the proof
             const result = await selfBackendVerifier.verify(proof, publicSignals);
 
+            console.log(result)
+
             if (result.isValid) {
                 // Return successful verification response
                 return NextResponse.json({
