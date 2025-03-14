@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
             // Initialize and configure the verifier
             const selfBackendVerifier = new SelfBackendVerifier(
                 'https://forno.celo.org',
-                'celosids2'
+                'celosids'
             );
 
             // Configure verification options
